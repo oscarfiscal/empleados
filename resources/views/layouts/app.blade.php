@@ -9,8 +9,7 @@
 
         <!-- Fonts -->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap">
-
-        <!-- Styles -->
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">        <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         @livewireStyles
@@ -42,5 +41,6 @@
         @stack('modals')
 
         @livewireScripts
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     </body>
 </html>
