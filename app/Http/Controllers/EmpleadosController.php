@@ -11,14 +11,19 @@ use Illuminate\Support\Facades\Http;
 
 class EmpleadosController extends Controller
 {
+
+    protected $empleados;
+
+    public function __construct (Empleados $empleados)
+    {
+        $this->empleados = $empleados;
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
 
-     public $token;
-     public $paises;
     public function index()
     {
         $empleados = Empleados::paginate(5);
@@ -76,9 +81,10 @@ class EmpleadosController extends Controller
      * @param  \App\Models\Empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function edit(Empleados $empleados)
+    public function edit(Empleados $empleado)
     {
-        //
+        $paises = Country::all();
+        return view('empleados.editar', compact('empleado', 'paises'));
     }
 
     /**
@@ -88,9 +94,20 @@ class EmpleadosController extends Controller
      * @param  \App\Models\Empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Empleados $empleados)
+    public function update(Request $request, Empleados $empleado)
     {
-        //
+        
+        $request->validate([
+            'nombre' => 'required',
+            'apellido' => 'required',
+            'cedula' => 'required',
+            'direccion' => 'required',
+            'telefono' => 'required',
+            'ciudad_nacimiento' => 'required',
+       
+        ]);
+        $empleado->update($request->all());
+        return redirect()->route('empleados.index');
     }
 
     /**
@@ -99,9 +116,10 @@ class EmpleadosController extends Controller
      * @param  \App\Models\Empleados  $empleados
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Empleados $empleados)
+    public function destroy(Empleados $empleado)
     {
-        $empleados->delete();
+        $empleado->delete();
+       
         return redirect()->route('empleados.index');
     }
    

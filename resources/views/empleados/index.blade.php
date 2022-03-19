@@ -37,13 +37,13 @@
                         <td class="border px-4 py-2">
                             <div class="flex justify-center rounded-lg text-lg" role="group">
                                 <!-- botón editar -->
-                                <a href="" class="rounded bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4">Editar</a>
+                                <a href="{{ route('empleados.edit', $empleado->id) }}" class="rounded bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4">Editar</a>
 
                                 <!-- botón borrar -->
                                 <form action="{{ route('empleados.destroy', $empleado->id) }}" method="POST" class="formEliminar">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="bg-red-500 py-2 px-4 rounded text-gray-200 font-semibold hover:bg-red-500 transition duration-200 each-in-out">Borrar</button>
+                                    <button type="submit"   style="background:red; "class=" py-2 px-4 rounded text-gray-200 font-semibold hover:bg-red-500 transition duration-200 each-in-out">Borrar</button>
                                 </form>
                             </div>
                         </td>

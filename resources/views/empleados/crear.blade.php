@@ -48,15 +48,10 @@
                 <div class="grid grid-cols-1">
                         <label class="uppercase md:text-sm text-xs text-gray-500 text-light font-semibold">Seleccione una ciudad:</label>
                      
-                     <!--    <select id="select-ciudad" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent">
-                            <option selected>Open this select menu</option>
-                           
-                         
-                        </select> -->
-                        <select name="ciudad_nacimiento" class="city" id="city">
-<option selected="selected">--Seleccionar Ciudad--</option>
+                        <select name="ciudad_nacimiento" class="py-2 px-3 rounded-lg border-2 border-purple-300 mt-1 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" id="city">
+                        <option selected="selected">--Seleccionar Ciudad--</option>
 
-</select>
+                        </select>
                         
                 </div>
            </div>

@@ -23,7 +23,8 @@ Route::get('/', function () {
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->group(function () {
-    Route::resource('/empleados', EmpleadosController::class);
+    Route::resource('/empleados', EmpleadosController::class);  
+  
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
